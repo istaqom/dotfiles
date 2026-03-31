@@ -46,7 +46,7 @@ widget.pveNodeStatus
 ```js
 bodyPadding: '15 5 15 5',
 
-// Remove colspan from CPU and add thermal under load
+// Remove colspan from IO Delay and add thermal under load
 items: 
     {
         itemId: 'cpu',
