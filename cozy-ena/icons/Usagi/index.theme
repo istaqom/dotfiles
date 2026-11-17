@@ -1,0 +1,6 @@
+[Icon Theme]
+Name=Usagi
+Comment=Animated usagi cursors converted from Windows
+Inherits=breeze_cursors
+DisplayDepth=32
+Example=default

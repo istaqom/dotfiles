@@ -10,8 +10,11 @@ This repository contains my personal dotfiles and configuration files for variou
 │   └── zash.minimal.omp.json
 ├── .oh-my-zsh-themes/     # Oh My Zsh theme configurations
 │   └── istaqom.zsh-theme
+├── cozy-ena/               # Plasma rice (Bazzite) — panels, clock, lock
 ├── images/                 # Screenshots and documentation images
-│   └── oh-my-posh-themes.png
+│   ├── cozy-ena/
+│   ├── oh-my-posh-themes.png
+│   └── oh-my-zsh-theme.png
 └── README.md              # This file
 ```
 
@@ -73,3 +76,15 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
+
+## Cozy Ena (Plasma)
+
+Brown panels + gold Comfortaa clock + cream date + Ena greenhouse wallpaper (download separately).
+
+![Cozy Ena desktop](images/cozy-ena/desktop.jpg)
+
+See [`cozy-ena/README.md`](cozy-ena/README.md) for wallpaper source, lock shot, and apply steps.
+
+```bash
+./cozy-ena/apply.sh
+```

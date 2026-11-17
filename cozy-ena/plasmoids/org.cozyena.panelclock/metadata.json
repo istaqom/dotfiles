@@ -1,0 +1,23 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Cozy Ena"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "Cozy panel clock \u2014 brown pills, cream text (ref style)",
+        "Icon": "preferences-system-time",
+        "Id": "org.cozyena.panelclock",
+        "Name": "Cozy Panel Clock",
+        "Version": "1.12",
+        "License": "GPL-2.0+",
+        "EnabledByDefault": true
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.time",
+        "org.kde.plasma.date"
+    ]
+}

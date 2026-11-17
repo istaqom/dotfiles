@@ -1,0 +1,19 @@
+{
+  "KPackageStructure": "Plasma/Theme",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "cozy-ena"
+      }
+    ],
+    "Category": "Plasma Theme",
+    "Description": "Brown primary panels, cream secondary text for Ena rice",
+    "EnabledByDefault": true,
+    "Id": "CozyEna",
+    "License": "LGPL",
+    "Name": "Cozy Ena",
+    "Version": "1.1",
+    "Website": ""
+  },
+  "X-Plasma-API": "6.0"
+}

@@ -1,0 +1,13 @@
+{
+    "KPackageStructure": "KWin/Script",
+    "KPlugin": {
+        "Authors": [ { "Name": "Cozy Ena" } ],
+        "Description": "Drop Plasma/Steam notification toasts to floating dock baseline",
+        "Icon": "preferences-desktop-notification",
+        "Id": "cozyena-notify-lower",
+        "License": "GPL",
+        "Name": "Cozy Ena Notify Lower"
+    },
+    "X-Plasma-API": "javascript",
+    "X-Plasma-MainScript": "code/main.js"
+}
