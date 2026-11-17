@@ -5,4 +5,4 @@ defaultWidth=1920
 defaultHeight=1080
 
 [AdaptiveTransparency]
-enabled=false
+enabled=true

@@ -1,12 +1,12 @@
 /*
     Cozy Ena user tile — no circular crop.
     Shows avatar PNG as-is so logo octagon / transparency keeps exact shape.
+    Username: cream fill + brown stroke (same recipe as lock date).
 */
 
 import QtQuick
 import QtQuick.Window
 
-import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
 
 Item {
@@ -22,11 +22,15 @@ Item {
     property bool needsPassword
     property var vtNumber
     property bool constrainText: true
-    property alias nameFontSize: usernameDelegate.font.pointSize
     property real fontSize: Kirigami.Theme.defaultFont.pointSize + 2
+    property alias nameFontSize: nameLabel.font.pixelSize
     signal clicked()
 
     property real faceSize: Kirigami.Units.gridUnit * 8
+
+    readonly property color nameFill: "#FFF8EC"
+    readonly property color nameStroke: "#3D2415"
+    readonly property int nameStrokeR: 2
 
     opacity: isCurrent ? 1.0 : 0.75
 
@@ -34,6 +38,27 @@ Item {
         OpacityAnimator {
             duration: Kirigami.Units.longDuration
         }
+    }
+
+    function ringOffsets(maxR) {
+        if (maxR <= 0)
+            return []
+        var pts = []
+        var seen = {}
+        for (var rad = 1; rad <= maxR; rad++) {
+            var n = Math.max(12, rad * 10)
+            for (var i = 0; i < n; i++) {
+                var a = (Math.PI * 2 * i) / n
+                var x = Math.round(Math.cos(a) * rad)
+                var y = Math.round(Math.sin(a) * rad)
+                var key = x + "," + y
+                if (seen[key])
+                    continue
+                seen[key] = true
+                pts.push({ x: x, y: y })
+            }
+        }
+        return pts
     }
 
     Item {
@@ -56,7 +81,6 @@ Item {
             source: wrapper.avatarPath
             sourceSize: Qt.size(wrapper.faceSize * Screen.devicePixelRatio,
                                 wrapper.faceSize * Screen.devicePixelRatio)
-            // Keep logo octagon — no circle crop, no square plate behind
             fillMode: Image.PreserveAspectFit
             asynchronous: true
             smooth: true
@@ -71,27 +95,52 @@ Item {
         }
     }
 
-    PlasmaComponents3.Label {
+    Item {
         id: usernameDelegate
-
         anchors.top: imageSource.bottom
         anchors.topMargin: Kirigami.Units.gridUnit
         anchors.horizontalCenter: parent.horizontalCenter
+        width: wrapper.constrainText
+            ? Math.min(parent.width, nameLabel.implicitWidth + wrapper.nameStrokeR * 2 + 8)
+            : nameLabel.implicitWidth + wrapper.nameStrokeR * 2 + 8
+        height: nameLabel.implicitHeight + wrapper.nameStrokeR * 2 + 8
 
-        font.pointSize: wrapper.fontSize + 4
-        font.family: "Comfortaa"
+        Repeater {
+            model: wrapper.ringOffsets(wrapper.nameStrokeR)
+            delegate: Text {
+                anchors.centerIn: parent
+                anchors.horizontalCenterOffset: modelData.x
+                anchors.verticalCenterOffset: modelData.y
+                text: wrapper.name
+                color: wrapper.nameStroke
+                font.family: "Comfortaa"
+                font.pixelSize: Math.round((wrapper.fontSize + 4) * 1.35)
+                font.weight: Font.Bold
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: wrapper.constrainText ? Text.WordWrap : Text.NoWrap
+                maximumLineCount: wrapper.constrainText ? 3 : 1
+                elide: Text.ElideRight
+                width: wrapper.constrainText ? usernameDelegate.width - wrapper.nameStrokeR * 2 : undefined
+                renderType: Text.QtRendering
+            }
+        }
 
-        width: wrapper.constrainText ? parent.width : undefined
-        text: wrapper.name
-        textFormat: Text.PlainText
-        style: wrapper.softwareRendering ? Text.Outline : Text.Normal
-        styleColor: wrapper.softwareRendering ? Kirigami.Theme.backgroundColor : "transparent"
-        wrapMode: Text.WordWrap
-        maximumLineCount: wrapper.constrainText ? 3 : 1
-        elide: Text.ElideRight
-        horizontalAlignment: Text.AlignHCenter
-        font.underline: wrapper.activeFocus
-        color: "#FFF6E8"
+        Text {
+            id: nameLabel
+            anchors.centerIn: parent
+            text: wrapper.name
+            color: wrapper.nameFill
+            font.family: "Comfortaa"
+            font.pixelSize: Math.round((wrapper.fontSize + 4) * 1.35)
+            font.weight: Font.Bold
+            font.underline: wrapper.activeFocus
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: wrapper.constrainText ? Text.WordWrap : Text.NoWrap
+            maximumLineCount: wrapper.constrainText ? 3 : 1
+            elide: Text.ElideRight
+            width: wrapper.constrainText ? usernameDelegate.width - wrapper.nameStrokeR * 2 : undefined
+            renderType: Text.QtRendering
+        }
     }
 
     MouseArea {

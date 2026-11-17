@@ -1,19 +1,28 @@
 /*
- * Snap notification popups down so their bottom edge matches
- * the floating bottom dock (~10px screen margin), not the old strut gap.
+ * Align notification toasts with floating bottom dock.
+ * Also catch Steam toasts (own windows, often keepAbove).
  */
 var MARGIN = 10;
+var DOCK_RESERVE = 62; // ~52 dock + gap — keep toast above dock when dock shown
 var moving = false;
 
 function isToast(window) {
     if (!window) return false;
     if (window.notification || window.criticalNotification) return true;
-    // Steam / random XDG sometimes mis-typed — catch by class + skipTaskbar popup size
     try {
         var rc = ("" + window.resourceClass).toLowerCase();
         var rn = ("" + window.resourceName).toLowerCase();
-        if (rc.indexOf("steam") >= 0 && (window.skipTaskbar || window.skipPager)) return true;
-        if (rn.indexOf("steam") >= 0 && window.skipTaskbar) return true;
+        var cap = ("" + window.caption).toLowerCase();
+        var steamish = rc.indexOf("steam") >= 0 || rn.indexOf("steam") >= 0
+            || cap.indexOf("steam") >= 0;
+        if (steamish) {
+            // Steam toast: small skipTaskbar popup, or any steam notification-ish
+            if (window.skipTaskbar || window.skipPager) return true;
+            try {
+                var g = window.frameGeometry;
+                if (g && g.width <= 520 && g.height <= 220) return true;
+            } catch (e) {}
+        }
     } catch (e) {}
     return false;
 }
@@ -32,12 +41,15 @@ function alignToast(window) {
     }
     if (!area) return;
 
-    var targetY = Math.round(area.y + area.height - geo.height - MARGIN);
-    // keep right-edge placement; only fix vertical
-    if (Math.abs(geo.y - targetY) < 3) return;
+    // Prefer sitting just above dock band (not covering it)
+    var targetY = Math.round(area.y + area.height - geo.height - DOCK_RESERVE);
+    var minY = Math.round(area.y + MARGIN);
+    if (targetY < minY) targetY = minY;
 
     moving = true;
     try {
+        // Steam likes keepAbove — drop it so panel/dock can compete
+        try { if (window.keepAbove) window.keepAbove = false; } catch (e) {}
         window.frameGeometry = {
             x: geo.x,
             y: targetY,
@@ -54,7 +66,6 @@ function alignToast(window) {
 
 function setup(window) {
     if (!isToast(window)) return;
-    // Plasma positions after map — nudge now and once shortly after
     alignToast(window);
     try {
         window.frameGeometryChanged.connect(function () {

@@ -1,43 +1,40 @@
 #!/usr/bin/env bash
-# Opaque floating panels.
-# Top: main fill panel (tray on RIGHT) + separate fit panel (clock CENTER).
-# Does NOT change tray hide/show lists.
+# Top: translucent + no panel chrome (wallpaper). Bottom: opaque brown.
+# Requires Panel.qml override (translucent FrameSvg hidden) + AdaptiveTransparency=true.
 set -euo pipefail
 QDBUS=$(command -v qdbus-qt6 || command -v qdbus6 || command -v qdbus)
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+VIEWS="$HOME/.local/share/plasma/shells/org.kde.plasma.desktop/contents/views"
+mkdir -p "$VIEWS"
+if [ -f "$ROOT/plasma-shell-override/views/Panel.qml" ]; then
+  cp -a /usr/share/plasma/shells/org.kde.plasma.desktop/contents/views/. "$VIEWS/" 2>/dev/null || true
+  cp -a "$ROOT/plasma-shell-override/views/Panel.qml" "$VIEWS/Panel.qml"
+fi
 $QDBUS org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript '
 var panels = panels();
 for (var i = 0; i < panels.length; i++) {
   var p = panels[i];
-  try { p.opacityMode = "Opaque"; } catch (e) {}
   if (p.location === "bottom") {
+    p.opacity = "opaque";
     p.floating = true;
     p.height = 52;
     p.lengthMode = "fit";
     p.alignment = "center";
     p.maximumLength = 560;
-    // dodgewindows: no permanent bottom strut → toasts sit level with dock
     p.hiding = "dodgewindows";
   }
   if (p.location === "top") {
-    // Non-floating: no extra float pad — bar hugs pills (~2px gap)
+    p.opacity = "translucent";
     p.floating = false;
     p.height = 26;
     var ws = p.widgets();
-    var hasTray = false, hasClock = false;
+    var hasTray = false;
     for (var j = 0; j < ws.length; j++) {
-      var t = "" + ws[j].type;
-      if (t.indexOf("systemtray") >= 0) hasTray = true;
-      if (t === "org.kde.plasma.digitalclock") hasClock = true;
+      if (("" + ws[j].type).indexOf("systemtray") >= 0) hasTray = true;
     }
-    if (hasClock && !hasTray) {
-      p.lengthMode = "fit";
-      p.alignment = "center";
-      p.maximumLength = 280;
-    } else if (hasTray) {
-      p.lengthMode = "fill";
-    }
+    if (hasTray) p.lengthMode = "fill";
   }
 }
 print("panels ok");
 '
-echo "Panels applied (tray lists untouched)"
+echo "Panels applied (top clear / bottom opaque)"

@@ -1,6 +1,6 @@
 # Cozy Ena (Plasma rice)
 
-Brown opaque panels + Vapor apps + Tela-circle-dark + Usagi cursor + Comfortaa + floating gold clock (cream date).
+Clear top panel (wallpaper through) + opaque brown dock/popups + Vapor apps + Tela-circle-dark + Usagi cursor + Comfortaa + floating gold clock (cream date).
 
 ## Screenshots
 
@@ -8,11 +8,14 @@ Brown opaque panels + Vapor apps + Tela-circle-dark + Usagi cursor + Comfortaa +
 
 ![Lock screen](../images/cozy-ena/lock.jpg)
 
+![Login (lock screen password UI)](../images/cozy-ena/login.jpg)
+
 | Crop | Preview |
 |------|---------|
 | Clock | ![Clock](../images/cozy-ena/clock.png) |
 | Top panel | ![Top panel](../images/cozy-ena/top-panel.png) |
 | Dock | ![Dock](../images/cozy-ena/dock.png) |
+| Login user | ![Login user](../images/cozy-ena/login-user.png) |
 
 ## Wallpaper (not bundled)
 
