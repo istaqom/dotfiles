@@ -10,6 +10,8 @@ Clear top panel (wallpaper through) + opaque brown dock/popups + Vapor apps + Te
 
 ![Login (lock screen password UI)](../images/cozy-ena/login.jpg)
 
+![Launcher](../images/cozy-ena/launcher.jpg)
+
 | Crop | Preview |
 |------|---------|
 | Clock | ![Clock](../images/cozy-ena/clock.png) |
