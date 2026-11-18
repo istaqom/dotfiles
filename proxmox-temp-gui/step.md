@@ -1,6 +1,6 @@
-# CPU package temp on the Proxmox node status panel
+# CPU package temp on the Proxmox node panel
 
-Shows package temperature next to CPU / IO / load. Edits under `/usr/share` — redo after `pve-manager` upgrades.
+Adds package temperature next to CPU / IO / load. Touches files under `/usr/share`, so redo after `pve-manager` upgrades.
 
 ## 1. Backend — `Nodes.pm`
 
@@ -27,7 +27,7 @@ Needs `lm-sensors` (`sensors -j` must work on the node).
 nano /usr/share/pve-manager/js/pvemanagerlib.js
 ```
 
-Search for `widget.pveNodeStatus`. In the status `items` list, drop `colspan` from IO delay if present, and add a thermal block:
+Search for `widget.pveNodeStatus`. In the status `items` list, drop `colspan` from IO delay if it is there, then add a thermal block:
 
 ```js
 bodyPadding: '15 5 15 5',
@@ -68,7 +68,7 @@ items:
     },
 ```
 
-Sensor path (`coretemp-isa-0000` / `Package id 0`) varies by CPU — adjust to match `sensors -j` on your box.
+Sensor path (`coretemp-isa-0000` / `Package id 0`) varies by CPU — match whatever `sensors -j` prints on your box.
 
 ## 3. Reload UI
 
@@ -76,4 +76,4 @@ Sensor path (`coretemp-isa-0000` / `Package id 0`) varies by CPU — adjust to m
 systemctl restart pveproxy
 ```
 
-Hard-refresh the browser (cache).
+Hard-refresh the browser so it drops the old JS.

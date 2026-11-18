@@ -1,45 +1,51 @@
+<div align="center">
+
 # Dotfiles
 
-Personal configs. Clone what you need; nothing here expects a full-machine install.
+Personal configs for shell prompts and a Plasma rice on Bazzite.  
+Grab what you want — nothing here expects a full-machine install.
 
-## Layout
+</div>
 
-```
-.
-├── cozy-ena/              # Plasma rice (Bazzite)
-├── .oh-my-posh-themes/    # PowerShell prompt
-├── .oh-my-zsh-themes/     # Zsh prompt
-├── images/                # Screenshots for the READMEs
-└── proxmox-temp-gui/      # Optional Proxmox UI tweak notes
-```
+## Cozy Ena
 
-## Cozy Ena (Plasma)
+Clear top panel, brown dock, gold Comfortaa clock, media dock with album art.  
+Wallpaper is Project SEKAI card art (not shipped here).
 
-Brown panels, clear top bar, gold Comfortaa clock, media dock with album art. Wallpaper is Project SEKAI card art — not shipped in this repo.
-
-![Desktop](images/cozy-ena/desktop.jpg)
+![desktop](images/cozy-ena/desktop.jpg)
 
 ```bash
 ./cozy-ena/apply.sh
 ```
 
-Full notes: [`cozy-ena/README.md`](cozy-ena/README.md).
+Details, lock/login shots, and wallpaper notes → [`cozy-ena/README.md`](cozy-ena/README.md).
 
-## Oh My Posh — `zash.minimal`
+## Shell prompts
 
-File: `.oh-my-posh-themes/zash.minimal.omp.json`
+### Oh My Posh · `zash.minimal`
 
-Segments: user (`#E36464`), path (`#56B6C2`), git (`#D4AAFC` / `#DDB15F`), status (`#DCB977`).
+`.oh-my-posh-themes/zash.minimal.omp.json` — user, path, git, status.
 
-![Oh My Posh](images/oh-my-posh-themes.png)
+| Segment | Colour |
+|---------|--------|
+| user | `#E36464` |
+| path | `#56B6C2` |
+| git | `#D4AAFC` / `#DDB15F` |
+| status | `#DCB977` |
 
-## Oh My Zsh — `istaqom`
+![oh-my-posh](images/oh-my-posh-themes.png)
 
-File: `.oh-my-zsh-themes/istaqom.zsh-theme`
+### Oh My Zsh · `istaqom`
 
-User/host, cwd, git branch + short status, simple arrow prompt.
+`.oh-my-zsh-themes/istaqom.zsh-theme` — user/host, cwd, git, arrow prompt.
 
-![Oh My Zsh](images/oh-my-zsh-theme.png)
+![oh-my-zsh](images/oh-my-zsh-theme.png)
+
+## Also here
+
+| | |
+|--|--|
+| `proxmox-temp-gui/` | optional notes: show CPU package temp in the Proxmox node panel |
 
 ## License
 
