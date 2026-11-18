@@ -7,11 +7,11 @@
             }
         ],
         "Category": "Multimedia",
-        "Description": "Dock media — compact music note when idle, art + title when playing",
+        "Description": "Dock media \u2014 compact music note when idle, art + title when playing",
         "Icon": "media-playback-start",
         "Id": "org.cozyena.mediadock",
         "Name": "Cozy Media Dock",
-        "Version": "1.0",
+        "Version": "1.3",
         "License": "GPL-2.0+",
         "EnabledByDefault": true
     },

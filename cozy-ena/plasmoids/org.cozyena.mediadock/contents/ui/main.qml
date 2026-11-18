@@ -40,17 +40,15 @@ PlasmoidItem {
 
     compactRepresentation: Item {
         id: compact
-        // Match ~dock icon size on 52px panel
-        readonly property int iconSize: 44
+        // Slightly under panel thickness so art doesn't kiss dock edge
+        readonly property int artPx: 36
 
         Layout.fillHeight: true
         Layout.fillWidth: false
         Layout.alignment: Qt.AlignVCenter
-        Layout.minimumWidth: root.hasTrack ? (compact.iconSize + 12 + Kirigami.Units.gridUnit * 8) : (compact.iconSize + 8)
-        Layout.preferredWidth: row.width + 8
-        Layout.maximumWidth: Kirigami.Units.gridUnit * 18
-        Layout.minimumHeight: compact.iconSize + 8
-        Layout.preferredHeight: compact.iconSize + 8
+        Layout.minimumWidth: row.implicitWidth + 6
+        Layout.preferredWidth: row.implicitWidth + 6
+        Layout.maximumWidth: row.implicitWidth + 6
 
         MouseArea {
             anchors.fill: parent
@@ -72,23 +70,21 @@ PlasmoidItem {
             }
         }
 
-        // Plain Row — Layout was squashing the art into a tall oval
         Row {
             id: row
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            anchors.leftMargin: 2
+            anchors.leftMargin: 4
             spacing: 6
-            height: compact.iconSize
 
-            // Rounded art with antialiased corners (no jagged edges)
             Rectangle {
                 id: badge
-                width: compact.iconSize
-                height: compact.iconSize
-                radius: 8
+                width: compact.artPx
+                height: compact.artPx
+                anchors.verticalCenter: parent.verticalCenter
+                radius: 6
                 color: root.brownSoft
-                border.width: root.isPlaying ? 2 : 1.5
+                border.width: badge.showArt ? 0 : 1.5
                 border.color: root.gold
                 readonly property bool showArt: root.hasTrack && root.artUrl.length > 0
                     && artImg.status === Image.Ready
@@ -102,7 +98,7 @@ PlasmoidItem {
                     mipmap: true
                     smooth: true
                     visible: false
-                    sourceSize: Qt.size(compact.iconSize * 2, compact.iconSize * 2)
+                    sourceSize: Qt.size(72, 72)
                 }
 
                 OpacityMask {
@@ -110,9 +106,9 @@ PlasmoidItem {
                     visible: badge.showArt
                     source: artImg
                     maskSource: Rectangle {
-                        width: compact.iconSize
-                        height: compact.iconSize
-                        radius: 8
+                        width: compact.artPx
+                        height: compact.artPx
+                        radius: 6
                         color: "#ffffff"
                         antialiasing: true
                     }
@@ -124,7 +120,7 @@ PlasmoidItem {
                     visible: !badge.showArt
                     text: "♪"
                     color: root.cream
-                    font.pixelSize: Math.round(compact.iconSize * 0.5)
+                    font.pixelSize: 18
                     font.bold: true
                 }
             }
@@ -133,25 +129,26 @@ PlasmoidItem {
                 visible: root.hasTrack
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: 0
-                width: Math.min(Kirigami.Units.gridUnit * 10, 160)
 
                 PlasmaComponents3.Label {
-                    width: parent.width
+                    id: trackLabel
                     text: root.track
                     color: root.cream
                     elide: Text.ElideRight
-                    font.pixelSize: Math.max(10, Math.round(compact.iconSize * 0.30))
+                    font.pixelSize: 12
                     font.bold: true
                     maximumLineCount: 1
+                    width: Math.min(implicitWidth, 160)
                 }
                 PlasmaComponents3.Label {
-                    width: parent.width
+                    id: artistLabel
                     text: root.artist
                     color: Qt.rgba(1, 0.973, 0.925, 0.7)
                     elide: Text.ElideRight
-                    font.pixelSize: Math.max(9, Math.round(compact.iconSize * 0.24))
+                    font.pixelSize: 11
                     maximumLineCount: 1
                     visible: root.artist.length > 0
+                    width: Math.min(implicitWidth, 160)
                 }
             }
         }

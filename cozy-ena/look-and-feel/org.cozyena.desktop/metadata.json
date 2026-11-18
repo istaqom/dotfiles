@@ -1,0 +1,18 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Cozy Ena"
+            }
+        ],
+        "Category": "",
+        "Description": "Brown cream gold splash matching Cozy Ena rice",
+        "Id": "org.cozyena.desktop",
+        "License": "GPL-2.0+",
+        "Name": "Cozy Ena",
+        "Version": "1.0",
+        "Website": ""
+    },
+    "X-Plasma-APIVersion": "2"
+}

@@ -43,6 +43,7 @@ Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
 |-------|-------------|
 | Plasma style `CozyEna` | `~/.local/share/plasma/desktoptheme/CozyEna` |
 | Big clock + panel clock + media dock plasmoids | `~/.local/share/plasma/plasmoids/org.cozyena.*` |
+| Splash screen `Cozy Ena` (`apply-splash.sh` copies your wallpaper in locally) | `~/.local/share/plasma/look-and-feel/org.cozyena.desktop` |
 | Lock screen QML (date above clock, octagon avatar) | `~/.local/share/plasma/shells/.../lockscreen/` |
 | Comfortaa | `~/.local/share/fonts/Comfortaa` |
 | Usagi cursors | `~/.local/share/icons/Usagi` |
@@ -70,6 +71,7 @@ Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
 ./scripts/apply-plasma-theme.sh
 ./scripts/apply-panels.sh
 ./scripts/apply-mediadock.sh
+./scripts/apply-splash.sh
 ./scripts/apply-lockscreen.sh
 ./scripts/apply-notify.sh
 ./scripts/apply-kwin-notify-lower.sh
