@@ -7,6 +7,7 @@ Plasma rice for Bazzite: clear top panel, opaque brown dock/popups, Vapor colors
 ![Desktop](../images/cozy-ena/desktop.jpg)
 
 ![Lock](../images/cozy-ena/lock.jpg)
+
 ![Login](../images/cozy-ena/login.jpg)
 
 ![Launcher](../images/cozy-ena/launcher.jpg)
@@ -15,6 +16,7 @@ Plasma rice for Bazzite: clear top panel, opaque brown dock/popups, Vapor colors
 |--|--|
 | Clock | ![Clock](../images/cozy-ena/clock.png) |
 | Dock + media | ![Dock](../images/cozy-ena/dock.png) |
+| Login card | ![Login card](../images/cozy-ena/login-user.png) |
 
 ## Wallpaper (not in repo)
 
