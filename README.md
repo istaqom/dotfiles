@@ -10,7 +10,7 @@ Grab what you want — nothing here expects a full-machine install.
 ## Cozy Ena
 
 Clear top panel, brown dock, gold Comfortaa clock, media dock with album art.  
-Wallpaper is Project SEKAI card art (not shipped here).
+Wallpaper: Shinonome Ena’s *An Overwhelming Welcome!* (熱烈歓迎にたじたじ！) from Project SEKAI.
 
 ![desktop](images/cozy-ena/desktop.jpg)
 
@@ -43,9 +43,7 @@ Details, lock/login shots, and wallpaper notes → [`cozy-ena/README.md`](cozy-e
 
 ## Also here
 
-| | |
-|--|--|
-| `proxmox-temp-gui/` | optional notes: show CPU package temp in the Proxmox node panel |
+- [`proxmox-temp-gui/`](proxmox-temp-gui/step.md) — optional notes for showing CPU package temp in the Proxmox node panel
 
 ## License
 

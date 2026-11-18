@@ -25,19 +25,14 @@ and a media dock that grows album art when something is playing.
 - **Splash.** `apply-splash.sh` can bake your local wallpaper into the look-and-feel package.
 - **Extras.** Comfortaa, Usagi cursors, a gold Dolphin icon patch inside Tela-circle-dark.
 
-## Wallpaper (not bundled)
+## Wallpaper
 
-SEGA / Colorful Palette own the art. Find it yourself (in-game or official channels) — do not commit the PNG into this repo.
+The greenhouse desk uses Shinonome Ena’s trained card *An Overwhelming Welcome!*  
+(熱烈歓迎にたじたじ！) from Project SEKAI — © SEGA / Colorful Palette.
 
-| | |
-|--|--|
-| **Card** | *An Overwhelming Welcome!* (熱烈歓迎にたじたじ！) |
-| | also *Taken Aback By A Passionate Warm Welcome!* |
-| **Who** | Shinonome Ena · 4★ · 25-ji, Nightcord de. · Happy |
-| **Event** | *Tying Tomorrow's Ribbon* (あしたのリボンを結ぶとき) · Friendly Fuzzy Daisy Gacha |
-| **Outfit** | *Petit joie* |
-
-Drop a copy under `~/Pictures/Wallpapers/` if you want splash baking, then point System Settings → Wallpaper / Lock at that file.
+Get the art yourself (in-game is the straightforward route). Put a copy under  
+`~/Pictures/Wallpapers/` if you want splash baking, then pick it in System Settings  
+for wallpaper and lock.
 
 ## Apply
 
@@ -51,7 +46,7 @@ Backs up `kdeglobals`, `plasmarc`, and appletsrc under `cozy-ena/backups/` first
 
 - `Tela-circle-dark`
 - **Vapor** colour scheme (Bazzite usually ships it)
-- The Ena card wallpaper above
+- That Ena wallpaper (see above)
 
 ### What lands where
 
@@ -93,5 +88,5 @@ Prefer that over bare `plasmashell --replace` — the latter can leave panels de
 
 ## Credits
 
-- Shinonome Ena / *An Overwhelming Welcome!* © SEGA / Colorful Palette (Project SEKAI). Fan rice only; art is not redistributed here.
-- Plasma, Breeze-derived lock bits, and the rest of the stack belong to their upstreams.
+- *An Overwhelming Welcome!* / Shinonome Ena © SEGA / Colorful Palette. Fan rice only.
+- Plasma and the rest of the stack belong to their upstreams.
