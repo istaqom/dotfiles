@@ -7,3 +7,6 @@ cozy-ena/look-and-feel/**/background.jpg
 # local-only theme demos (do not push)
 images/cozy-ena/demo.mp4
 images/cozy-ena/*.webm
+
+# editor / agent local
+.cursor/
