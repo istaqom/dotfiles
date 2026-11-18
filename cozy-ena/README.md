@@ -21,13 +21,17 @@ Clear top panel (wallpaper through) + opaque brown dock/popups + Vapor apps + Te
 
 ## Wallpaper (not bundled)
 
-Download yourself — art is SEGA / Colorful Palette (Project SEKAI), not redistributed here.
+Art is SEGA / Colorful Palette — **not redistributed here**. Find the trained card art yourself (in-game, official channels, etc.):
 
 | | |
 |--|--|
-| **Source** | [Zerochan #4637608](https://www.zerochan.net/4637608) — Shinonome Ena, *Petals in The Wind* (greenhouse) |
-| **Save as** | `~/Pictures/Wallpapers/Shinonome.Ena.Petals-in-The-Wind.greenhouse.full.png` |
-| **Then** | System Settings → Wallpaper / Lock screen → pick that file |
+| **Card** | *An Overwhelming Welcome!* (熱烈歓迎にたじたじ！) — also *Taken Aback By A Passionate Warm Welcome!* |
+| **Character** | Shinonome Ena — 4★ permanent, 25-ji, Nightcord de., Happy |
+| **Event / gacha** | *Tying Tomorrow's Ribbon* (あしたのリボンを結ぶとき) · Friendly Fuzzy Daisy Gacha |
+| **Costume** | unlocks *Petit joie* (+ matching accessory) |
+| **Then** | System Settings → Wallpaper / Lock screen → pick your file |
+
+`apply-splash.sh` looks under `~/Pictures/Wallpapers/` for a local copy if you already saved one.
 
 Optional login crop (Plasma Login Manager, needs sudo once): see notes in older `themes/cozy-ena/apply-login-wallpaper.sh` if present on this machine.
 
@@ -49,14 +53,13 @@ Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
 | Lock screen QML (date above clock, octagon avatar) | `~/.local/share/plasma/shells/.../lockscreen/` |
 | Comfortaa | `~/.local/share/fonts/Comfortaa` |
 | Usagi cursors | `~/.local/share/icons/Usagi` |
-| Notify lower KWin script | dodgewindows-friendly toast drop |
 | Gold Dolphin icon | override inside Tela-circle-dark |
 
 ## Prerequisites (not bundled)
 
 - **Tela circle icons** (`Tela-circle-dark`)
 - **Vapor** color scheme (Bazzite usually has it)
-- Wallpaper from Zerochan link above
+- Wallpaper: *An Overwhelming Welcome!* Ena card art (see above) — obtain yourself
 
 ## Tray notes
 

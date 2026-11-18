@@ -19,6 +19,6 @@ echo "== Cozy Ena apply =="
 echo
 echo "Done. If panels look stale: systemctl --user restart plasma-plasmashell.service"
 echo "Restart Discord/Cursor/Bitwarden once for icon/tray changes."
-echo "Wallpaper: download from https://www.zerochan.net/4637608"
-echo "  save as ~/Pictures/Wallpapers/Shinonome.Ena.Petals-in-The-Wind.greenhouse.full.png"
+echo "Wallpaper: obtain Shinonome Ena card art *An Overwhelming Welcome!* yourself"
+echo "  (see cozy-ena/README.md) — place under ~/Pictures/Wallpapers/ for splash"
 echo "Login wallpaper (needs sudo): optional; see cozy-ena README."
