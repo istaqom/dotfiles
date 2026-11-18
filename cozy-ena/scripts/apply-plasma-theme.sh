@@ -5,6 +5,8 @@ mkdir -p "$HOME/.local/share/plasma/desktoptheme" "$HOME/.local/share/plasma/pla
          "$HOME/.local/share/color-schemes"
 rsync -a "$ROOT/plasma-theme/CozyEna/" "$HOME/.local/share/plasma/desktoptheme/CozyEna/"
 rsync -a "$ROOT/plasmoids/org.cozyena.bigclock/" "$HOME/.local/share/plasma/plasmoids/org.cozyena.bigclock/"
+rsync -a "$ROOT/plasmoids/org.cozyena.panelclock/" "$HOME/.local/share/plasma/plasmoids/org.cozyena.panelclock/"
+rsync -a "$ROOT/plasmoids/org.cozyena.mediadock/" "$HOME/.local/share/plasma/plasmoids/org.cozyena.mediadock/"
 [[ -f "$ROOT/color-schemes/CozyEna.colors" ]] && cp -f "$ROOT/color-schemes/CozyEna.colors" "$HOME/.local/share/color-schemes/"
 
 # Colors: Vapor in apps; CozyEna plasma chrome

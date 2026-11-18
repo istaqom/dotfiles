@@ -21,7 +21,6 @@ function makeTop() {
 
     p.addWidget("org.kde.plasma.pager");
     p.addWidget("org.kde.plasma.marginsseparator");
-    p.addWidget("org.kde.plasma.mediacontroller");
     p.addWidget("org.kde.plasma.panelspacer");
     p.addWidget("org.kde.plasma.systemtray");
     var clock = p.addWidget("org.kde.plasma.digitalclock");
@@ -56,8 +55,7 @@ function makeDock() {
         tasks.writeConfig("launchers", "applications:org.kde.dolphin.desktop,applications:org.kde.konsole.desktop,applications:firefox.desktop");
         tasks.reloadConfig();
     } catch (e) {}
-    p.addWidget("org.kde.plasma.marginsseparator");
-    p.addWidget("org.kde.plasma.mediacontroller");
+    p.addWidget("org.cozyena.mediadock");
     return p;
 }
 

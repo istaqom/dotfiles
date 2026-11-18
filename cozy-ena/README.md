@@ -42,7 +42,7 @@ Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
 | Piece | Destination |
 |-------|-------------|
 | Plasma style `CozyEna` | `~/.local/share/plasma/desktoptheme/CozyEna` |
-| Big clock + panel clock plasmoids | `~/.local/share/plasma/plasmoids/org.cozyena.*` |
+| Big clock + panel clock + media dock plasmoids | `~/.local/share/plasma/plasmoids/org.cozyena.*` |
 | Lock screen QML (date above clock, octagon avatar) | `~/.local/share/plasma/shells/.../lockscreen/` |
 | Comfortaa | `~/.local/share/fonts/Comfortaa` |
 | Usagi cursors | `~/.local/share/icons/Usagi` |
@@ -60,6 +60,7 @@ Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
 - Discord / Cursor tray use **embedded pixmaps** → theme cannot restyle. Keep them **visible** in tray (dock still shows Tela app icons).
 - Bitwarden double icon = SNI + XEmbed. Script sets `ELECTRON_OZONE_PLATFORM_HINT=wayland`; **restart Bitwarden** once.
 - Volume slider uses gold Selection highlight for contrast on brown panel.
+- Dock media (`org.cozyena.mediadock`): cream ♪ note when idle; expands to art + title only while playing.
 
 ## Partial scripts
 
@@ -68,6 +69,7 @@ Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
 ./scripts/apply-icons.sh
 ./scripts/apply-plasma-theme.sh
 ./scripts/apply-panels.sh
+./scripts/apply-mediadock.sh
 ./scripts/apply-lockscreen.sh
 ./scripts/apply-notify.sh
 ./scripts/apply-kwin-notify-lower.sh

@@ -1,0 +1,16 @@
+---
+description: Never add Cursor/agent as git co-author on this project
+alwaysApply: true
+---
+
+# No Cursor co-author
+
+Never attribute commits to Cursor, cursoragent, or any AI/agent identity on this project (themes / `dotfiles` repo).
+
+## Required
+
+- Do **not** put `Co-authored-by: Cursor`, `cursoragent@cursor.com`, or any agent trailer in commit messages.
+- Author/committer stay the user's git identity only.
+- If the IDE/hook auto-injects a Cursor co-author trailer: strip it before push. Prefer amend with empty hooks, e.g. `git -c core.hooksPath=/tmp/empty-git-hooks commit --amend ...`, then verify `git log -1 --format=%B` has no `Co-authored-by`.
+- If already pushed with that trailer: fix history (amend/rewrite) and force-with-lease only after explicit user OK on `main`.
+- Do not offer to add yourself as co-author "for convenience."

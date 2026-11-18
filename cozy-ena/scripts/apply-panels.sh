@@ -20,7 +20,7 @@ for (var i = 0; i < panels.length; i++) {
     p.height = 52;
     p.lengthMode = "fit";
     p.alignment = "center";
-    p.maximumLength = 560;
+    p.maximumLength = 480;
     p.hiding = "dodgewindows";
   }
   if (p.location === "top") {

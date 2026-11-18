@@ -1,0 +1,20 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Cozy Ena"
+            }
+        ],
+        "Category": "Multimedia",
+        "Description": "Dock media — compact music note when idle, art + title when playing",
+        "Icon": "media-playback-start",
+        "Id": "org.cozyena.mediadock",
+        "Name": "Cozy Media Dock",
+        "Version": "1.0",
+        "License": "GPL-2.0+",
+        "EnabledByDefault": true
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": []
+}
