@@ -4,9 +4,11 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 mkdir -p "$HOME/.local/share/plasma/desktoptheme" "$HOME/.local/share/plasma/plasmoids" \
          "$HOME/.local/share/color-schemes"
 rsync -a "$ROOT/plasma-theme/CozyEna/" "$HOME/.local/share/plasma/desktoptheme/CozyEna/"
-rsync -a "$ROOT/plasmoids/org.cozyena.bigclock/" "$HOME/.local/share/plasma/plasmoids/org.cozyena.bigclock/"
-rsync -a "$ROOT/plasmoids/org.cozyena.panelclock/" "$HOME/.local/share/plasma/plasmoids/org.cozyena.panelclock/"
-rsync -a "$ROOT/plasmoids/org.cozyena.mediadock/" "$HOME/.local/share/plasma/plasmoids/org.cozyena.mediadock/"
+# Plain cp — rsync can fail on odd plasmoid link trees ("Too many levels of symbolic links")
+for applet in org.cozyena.bigclock org.cozyena.panelclock org.cozyena.mediadock; do
+  rm -rf "$HOME/.local/share/plasma/plasmoids/$applet"
+  cp -a "$ROOT/plasmoids/$applet" "$HOME/.local/share/plasma/plasmoids/$applet"
+done
 [[ -f "$ROOT/color-schemes/CozyEna.colors" ]] && cp -f "$ROOT/color-schemes/CozyEna.colors" "$HOME/.local/share/color-schemes/"
 
 # Colors: Vapor in apps; CozyEna plasma chrome

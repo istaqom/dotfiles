@@ -60,29 +60,32 @@ function makeDock() {
 }
 
 function placeClock() {
+    // Match lock idle seat: centered, y = 8% of screen (LockScreenUi.qml idleY)
+    var sg = screenGeometry(0);
+    var clockW = 560;
+    var clockH = 200;
+    var x = Math.round((sg.width - clockW) / 2);
+    var y = Math.round(sg.height * 0.08);
     var desks = desktops();
     for (var i = 0; i < desks.length; i++) {
         var d = desks[i];
-        // only primary-ish
         if (typeof d.screen !== "undefined" && d.screen !== 0 && d.screen !== -1) {
             continue;
         }
-        var w = d.addWidget("org.kde.plasma.digitalclock");
-        try {
-            // large center-ish clock (coords are desktop-local)
-            w.geometry = { x: 660, y: 320, width: 600, height: 220 };
-        } catch (e) {
-            try { w.geometry = Qt.rect(660, 320, 600, 220); } catch (e2) {}
+        // Reuse existing bigclock if present
+        var ws = d.widgets();
+        var w = null;
+        for (var j = 0; j < ws.length; j++) {
+            if (("" + ws[j].type).indexOf("org.cozyena.bigclock") >= 0) {
+                w = ws[j];
+                break;
+            }
+        }
+        if (!w) {
+            w = d.addWidget("org.cozyena.bigclock");
         }
         try {
-            w.currentConfigGroup = ["Appearance"];
-            w.writeConfig("showDate", "true");
-            w.writeConfig("dateDisplayFormat", "BelowTime");
-            w.writeConfig("fontStyleName", "Bold");
-            w.writeConfig("use24hFormat", "2");
-            w.writeConfig("autoFontAndSize", "false");
-            w.writeConfig("fontSize", "72");
-            w.reloadConfig();
+            w.geometry = { x: x, y: y, width: clockW, height: clockH };
         } catch (e) {}
         break;
     }

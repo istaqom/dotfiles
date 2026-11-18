@@ -168,8 +168,17 @@ PlasmoidItem {
             }
         }
 
+        // Plasma desktop snaps applet geometry to an ~16px grid, so appletsrc
+        // cannot match lock idleY (height*0.08) exactly. Nudge the glyph stack
+        // so gold digits land on the same screen pixels as LockScreenUi.
+        // Calibrated @ 1920x1080 with applet parked at live ≈ (688, 74).
+        readonly property int lockAlignNudgeX: -8
+        readonly property int lockAlignNudgeY: 8
+
         Column {
             anchors.centerIn: parent
+            anchors.horizontalCenterOffset: body.lockAlignNudgeX
+            anchors.verticalCenterOffset: body.lockAlignNudgeY
             spacing: 6
 
             OutlinedText {

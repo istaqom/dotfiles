@@ -12,7 +12,7 @@
         "Id": "org.cozyena.bigclock",
         "License": "GPL-2.0+",
         "Name": "Cozy Ena Clock",
-        "Version": "1.6"
+        "Version": "1.7"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
 }
