@@ -12,12 +12,6 @@ Plasma rice for Bazzite: clear top panel, opaque brown dock/popups, Vapor colors
 
 ![Launcher](../images/cozy-ena/launcher.jpg)
 
-| | |
-|--|--|
-| Clock | ![Clock](../images/cozy-ena/clock.png) |
-| Dock + media | ![Dock](../images/cozy-ena/dock.png) |
-| Login card | ![Login card](../images/cozy-ena/login-user.png) |
-
 ## Wallpaper (not in repo)
 
 SEGA / Colorful Palette art — get it yourself (in-game or official channels). Do not commit the PNG here.
