@@ -14,7 +14,6 @@ echo "== Cozy Ena apply =="
 "$ROOT/scripts/apply-mediadock.sh"
 "$ROOT/scripts/apply-splash.sh"
 "$ROOT/scripts/apply-notify.sh"
-"$ROOT/scripts/apply-kwin-notify-lower.sh"
 "$ROOT/scripts/apply-bitwarden-tray.sh"
 
 echo

@@ -76,7 +76,6 @@ Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
 ./scripts/apply-splash.sh
 ./scripts/apply-lockscreen.sh
 ./scripts/apply-notify.sh
-./scripts/apply-kwin-notify-lower.sh
 ./scripts/apply-bitwarden-tray.sh
 ```
 
