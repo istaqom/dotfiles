@@ -1,22 +1,14 @@
-### Add CPU Package Temperature to Proxmox Node Status
+# CPU package temp on the Proxmox node status panel
 
-Follow these steps to expose and display CPU package temperature in the Proxmox UI.
+Shows package temperature next to CPU / IO / load. Edits under `/usr/share` — redo after `pve-manager` upgrades.
 
-1) Edit backend: `PVE/API2/Nodes.pm`
-
-- Open the file:
+## 1. Backend — `Nodes.pm`
 
 ```bash
 nano /usr/share/perl5/PVE/API2/Nodes.pm
 ```
 
-- Use search (F6) to find:
-
-```
-my $dinfo
-```
-
-- Insert the following lines before that location:
+Search (`F6`) for `my $dinfo`. Insert **above** that line:
 
 ```perl
 $res->{pveversion} = PVE::pvecfg::package() . "/" .
@@ -27,27 +19,20 @@ $res->{thermalstate} = `sensors -j`;
 my $dinfo = df('/', 1);     # output is bytes
 ```
 
-2) Edit frontend: `pvemanagerlib.js`
+Needs `lm-sensors` (`sensors -j` must work on the node).
 
-- Open the file:
+## 2. Frontend — `pvemanagerlib.js`
 
 ```bash
 nano /usr/share/pve-manager/js/pvemanagerlib.js
 ```
 
-- Use search (F6) to find:
-
-```
-widget.pveNodeStatus
-```
-
-- Update the widget configuration as follows:
+Search for `widget.pveNodeStatus`. In the status `items` list, drop `colspan` from IO delay if present, and add a thermal block:
 
 ```js
 bodyPadding: '15 5 15 5',
 
-// Remove colspan from IO Delay and add thermal under load
-items: 
+items:
     {
         itemId: 'cpu',
         iconCls: 'fa fa-fw pmx-itype-icon-processor pmx-icon',
@@ -82,8 +67,13 @@ items:
         }
     },
 ```
-3) Restart the Proxmox proxy to apply changes
+
+Sensor path (`coretemp-isa-0000` / `Package id 0`) varies by CPU — adjust to match `sensors -j` on your box.
+
+## 3. Reload UI
 
 ```bash
 systemctl restart pveproxy
 ```
+
+Hard-refresh the browser (cache).

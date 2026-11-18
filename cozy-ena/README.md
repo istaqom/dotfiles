@@ -1,74 +1,61 @@
-# Cozy Ena (Plasma rice)
+# Cozy Ena
 
-Clear top panel (wallpaper through) + opaque brown dock/popups + Vapor apps + Tela-circle-dark + Usagi cursor + Comfortaa + floating gold clock (cream date).
+Plasma rice for Bazzite: clear top panel, opaque brown dock/popups, Vapor colors, Tela-circle-dark, Usagi cursor, Comfortaa, floating gold clock + cream date, media dock.
 
-## Screenshots
+## Look
 
 ![Desktop](../images/cozy-ena/desktop.jpg)
 
-![Lock screen](../images/cozy-ena/lock.jpg)
-
-![Login (lock screen password UI)](../images/cozy-ena/login.jpg)
+![Lock](../images/cozy-ena/lock.jpg)
+![Login](../images/cozy-ena/login.jpg)
 
 ![Launcher](../images/cozy-ena/launcher.jpg)
 
-| Crop | Preview |
-|------|---------|
+| | |
+|--|--|
 | Clock | ![Clock](../images/cozy-ena/clock.png) |
-| Top panel | ![Top panel](../images/cozy-ena/top-panel.png) |
-| Dock | ![Dock](../images/cozy-ena/dock.png) |
-| Login user | ![Login user](../images/cozy-ena/login-user.png) |
+| Dock + media | ![Dock](../images/cozy-ena/dock.png) |
 
-## Wallpaper (not bundled)
+## Wallpaper (not in repo)
 
-Art is SEGA / Colorful Palette — **not redistributed here**. Find the trained card art yourself (in-game, official channels, etc.):
+SEGA / Colorful Palette art — get it yourself (in-game or official channels). Do not commit the PNG here.
 
 | | |
 |--|--|
-| **Card** | *An Overwhelming Welcome!* (熱烈歓迎にたじたじ！) — also *Taken Aback By A Passionate Warm Welcome!* |
-| **Character** | Shinonome Ena — 4★ permanent, 25-ji, Nightcord de., Happy |
-| **Event / gacha** | *Tying Tomorrow's Ribbon* (あしたのリボンを結ぶとき) · Friendly Fuzzy Daisy Gacha |
-| **Costume** | unlocks *Petit joie* (+ matching accessory) |
-| **Then** | System Settings → Wallpaper / Lock screen → pick your file |
+| Card | *An Overwhelming Welcome!* (熱烈歓迎にたじたじ！) |
+| Also called | *Taken Aback By A Passionate Warm Welcome!* |
+| Who | Shinonome Ena · 4★ · 25-ji, Nightcord de. · Happy |
+| Event | *Tying Tomorrow's Ribbon* (あしたのリボンを結ぶとき) · Friendly Fuzzy Daisy Gacha |
+| Outfit | *Petit joie* |
 
-`apply-splash.sh` looks under `~/Pictures/Wallpapers/` for a local copy if you already saved one.
+Put a local copy under `~/Pictures/Wallpapers/` if you want `apply-splash.sh` to bake it into the splash. Then set wallpaper / lock in System Settings.
 
-Optional login crop (Plasma Login Manager, needs sudo once): see notes in older `themes/cozy-ena/apply-login-wallpaper.sh` if present on this machine.
-
-## One-shot apply
+## Apply
 
 ```bash
 ./cozy-ena/apply.sh
 ```
 
-Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
+Backs up `kdeglobals`, `plasmarc`, and appletsrc under `cozy-ena/backups/` first.
 
-## What it installs
+### Installs
 
-| Piece | Destination |
-|-------|-------------|
+| Piece | Where |
+|-------|--------|
 | Plasma style `CozyEna` | `~/.local/share/plasma/desktoptheme/CozyEna` |
-| Big clock + panel clock + media dock plasmoids | `~/.local/share/plasma/plasmoids/org.cozyena.*` |
-| Splash screen `Cozy Ena` (`apply-splash.sh` copies your wallpaper in locally) | `~/.local/share/plasma/look-and-feel/org.cozyena.desktop` |
-| Lock screen QML (date above clock, octagon avatar) | `~/.local/share/plasma/shells/.../lockscreen/` |
-| Comfortaa | `~/.local/share/fonts/Comfortaa` |
-| Usagi cursors | `~/.local/share/icons/Usagi` |
-| Gold Dolphin icon | override inside Tela-circle-dark |
+| Big clock, panel clock, media dock | `~/.local/share/plasma/plasmoids/org.cozyena.*` |
+| Splash `Cozy Ena` | `~/.local/share/plasma/look-and-feel/org.cozyena.desktop` |
+| Lock screen QML | Plasma shell lockscreen override |
+| Comfortaa / Usagi | `~/.local/share/fonts`, `~/.local/share/icons` |
+| Gold Dolphin icon | patch inside Tela-circle-dark |
 
-## Prerequisites (not bundled)
+### You still need
 
-- **Tela circle icons** (`Tela-circle-dark`)
-- **Vapor** color scheme (Bazzite usually has it)
-- Wallpaper: *An Overwhelming Welcome!* Ena card art (see above) — obtain yourself
+- `Tela-circle-dark`
+- **Vapor** color scheme (usually on Bazzite)
+- The Ena card wallpaper above
 
-## Tray notes
-
-- Discord / Cursor tray use **embedded pixmaps** → theme cannot restyle. Keep them **visible** in tray (dock still shows Tela app icons).
-- Bitwarden double icon = SNI + XEmbed. Script sets `ELECTRON_OZONE_PLATFORM_HINT=wayland`; **restart Bitwarden** once.
-- Volume slider uses gold Selection highlight for contrast on brown panel.
-- Dock media (`org.cozyena.mediadock`): cream ♪ note when idle; expands to art + title only while playing.
-
-## Partial scripts
+### One piece at a time
 
 ```bash
 ./scripts/apply-fonts.sh
@@ -82,10 +69,17 @@ Backs up `kdeglobals` / `plasmarc` / appletsrc first → `cozy-ena/backups/`.
 ./scripts/apply-bitwarden-tray.sh
 ```
 
-## Safe plasmashell restart
+### Plasmashell restart
 
 ```bash
 systemctl --user restart plasma-plasmashell.service
 ```
 
-Do **not** use bare `plasmashell --replace` (can leave panels dead).
+Avoid bare `plasmashell --replace` — panels can stay dead.
+
+## Notes
+
+- Discord / Cursor tray icons are embedded pixmaps; theme cannot recolor them. Leave them visible in the tray.
+- Bitwarden double icon: SNI + XEmbed. Script sets `ELECTRON_OZONE_PLATFORM_HINT=wayland` — restart Bitwarden once.
+- Media dock: cream ♪ when idle; art + title while something is playing over MPRIS.
+- Notifications: top-right (`PopupPosition=TopRight`). No KWin toast hacks.

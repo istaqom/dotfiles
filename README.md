@@ -1,90 +1,46 @@
-# Dotfiles Repository
+# Dotfiles
 
-This repository contains my personal dotfiles and configuration files for various tools and applications.
+Personal configs. Clone what you need; nothing here expects a full-machine install.
 
-## 📁 Repository Structure
+## Layout
 
 ```
-.dotfiles/
-├── .oh-my-posh-themes/     # Oh My Posh theme configurations
-│   └── zash.minimal.omp.json
-├── .oh-my-zsh-themes/     # Oh My Zsh theme configurations
-│   └── istaqom.zsh-theme
-├── cozy-ena/               # Plasma rice (Bazzite) — panels, clock, lock
-├── images/                 # Screenshots and documentation images
-│   ├── cozy-ena/
-│   ├── oh-my-posh-themes.png
-│   └── oh-my-zsh-theme.png
-└── README.md              # This file
+.
+├── cozy-ena/              # Plasma rice (Bazzite)
+├── .oh-my-posh-themes/    # PowerShell prompt
+├── .oh-my-zsh-themes/     # Zsh prompt
+├── images/                # Screenshots for the READMEs
+└── proxmox-temp-gui/      # Optional Proxmox UI tweak notes
 ```
-
-## 🎨 Oh My Posh Themes
-
-This repository includes custom Oh My Posh themes for PowerShell terminal customization.
-
-### Available Themes
-
-#### Zash Minimal Theme
-- **File**: `.oh-my-posh-themes/zash.minimal.omp.json`
-- **Description**: A clean, minimal theme with color-coded segments for user, path, git status, and system status
-- **Colors**: 
-  - User: `#E36464` (Red)
-  - Path: `#56B6C2` (Cyan)
-  - Git: `#D4AAFC` (Purple) with `#DDB15F` (Gold) brackets
-  - Status: `#DCB977` (Gold)
-
-![Oh My Posh Themes Preview](images/oh-my-posh-themes.png)
-
-### Theme Features
-
-- **Session Display**: Shows current username
-- **Path Display**: Shows current directory path
-- **Git Integration**: Displays current branch and git status
-- **Status Indicator**: Shows system status with `!` symbol
-- **Clean Layout**: Left-aligned, minimal design
-
-## 🎨 Oh My Zsh Themes
-
-This repository also features custom themes for Oh My Zsh, enhancing the look and feel of your terminal experience.
-
-### Available Themes
-
-#### Istaqom Theme
-- **File**: `.oh-my-zsh-themes/istaqom.zsh-theme`
-- **Description**: A visually appealing prompt with clear segmentation for user, host, working directory, and git branch/status.
-- **Colors**: 
-  - User/Host: Subtle blue to green transition
-  - Directory: Bold cyan for clarity
-  - Git Info: Highlighted with vibrant magenta
-  - Symbols: Clean separator and succinct git status icons
-
-![Oh My Zsh Themes Preview](images/oh-my-zsh-theme.png)
-
-### Theme Features
-
-- **User and Host Display**: Clearly shows the current username and machine
-- **Directory Path**: Prominently displays the current working directory
-- **Git Integration**: Presents the current branch and concise git status symbols
-- **Prompt Symbols**: Minimalist arrow prompt for readability
-- **Consistent Spacing**: Ensures prompt elements don’t clutter
-
-
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
 
 ## Cozy Ena (Plasma)
 
-Brown panels + gold Comfortaa clock + cream date + Ena greenhouse wallpaper (download separately).
+Brown panels, clear top bar, gold Comfortaa clock, media dock with album art. Wallpaper is Project SEKAI card art — not shipped in this repo.
 
-![Cozy Ena desktop](images/cozy-ena/desktop.jpg)
-
-See [`cozy-ena/README.md`](cozy-ena/README.md) for wallpaper source, lock shot, and apply steps.
+![Desktop](images/cozy-ena/desktop.jpg)
 
 ```bash
 ./cozy-ena/apply.sh
 ```
+
+Full notes: [`cozy-ena/README.md`](cozy-ena/README.md).
+
+## Oh My Posh — `zash.minimal`
+
+File: `.oh-my-posh-themes/zash.minimal.omp.json`
+
+Segments: user (`#E36464`), path (`#56B6C2`), git (`#D4AAFC` / `#DDB15F`), status (`#DCB977`).
+
+![Oh My Posh](images/oh-my-posh-themes.png)
+
+## Oh My Zsh — `istaqom`
+
+File: `.oh-my-zsh-themes/istaqom.zsh-theme`
+
+User/host, cwd, git branch + short status, simple arrow prompt.
+
+![Oh My Zsh](images/oh-my-zsh-theme.png)
+
+## License
+
+[MIT](LICENSE)
