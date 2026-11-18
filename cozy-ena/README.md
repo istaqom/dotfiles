@@ -2,8 +2,8 @@
 
 # Cozy Ena
 
-**Plasma rice for Bazzite** — clear top bar, opaque brown dock & popups,  
-Vapor colours, Tela-circle-dark, Usagi cursor, Comfortaa, floating gold clock,  
+**Plasma rice for Bazzite** — clear top bar, opaque brown dock & popups,
+Vapor colours, Tela-circle-dark, Usagi cursor, Comfortaa, floating gold clock,
 and a media dock that grows album art when something is playing.
 
 </div>
@@ -27,11 +27,11 @@ and a media dock that grows album art when something is playing.
 
 ## Wallpaper
 
-The greenhouse desk uses Shinonome Ena’s trained card *An Overwhelming Welcome!*  
+The greenhouse desk uses Shinonome Ena's trained card *An Overwhelming Welcome!*
 (熱烈歓迎にたじたじ！) from Project SEKAI — © SEGA / Colorful Palette.
 
-Get the art yourself (in-game is the straightforward route). Put a copy under  
-`~/Pictures/Wallpapers/` if you want splash baking, then pick it in System Settings  
+Get the art yourself (in-game is the straightforward route). Put a copy under
+`~/Pictures/Wallpapers/` if you want splash baking, then pick it in System Settings
 for wallpaper and lock.
 
 ## Apply

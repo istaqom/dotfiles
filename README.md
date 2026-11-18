@@ -2,15 +2,15 @@
 
 # Dotfiles
 
-Personal configs for shell prompts and a Plasma rice on Bazzite.  
+Personal configs for shell prompts and a Plasma rice on Bazzite.
 Grab what you want — nothing here expects a full-machine install.
 
 </div>
 
 ## Cozy Ena
 
-Clear top panel, brown dock, gold Comfortaa clock, media dock with album art.  
-Wallpaper: Shinonome Ena’s *An Overwhelming Welcome!* (熱烈歓迎にたじたじ！) from Project SEKAI.
+Clear top panel, brown dock, gold Comfortaa clock, media dock with album art.
+Wallpaper: Shinonome Ena's *An Overwhelming Welcome!* (熱烈歓迎にたじたじ！) from Project SEKAI.
 
 ![desktop](images/cozy-ena/desktop.jpg)
 
